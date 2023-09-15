@@ -1,0 +1,14 @@
+C:\Users\johnt\Documents\jurassic\bin\Debug\net7.0\jurassic.exe
+C:\Users\johnt\Documents\jurassic\bin\Debug\net7.0\jurassic.deps.json
+C:\Users\johnt\Documents\jurassic\bin\Debug\net7.0\jurassic.runtimeconfig.json
+C:\Users\johnt\Documents\jurassic\bin\Debug\net7.0\jurassic.dll
+C:\Users\johnt\Documents\jurassic\bin\Debug\net7.0\jurassic.pdb
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\jurassic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\jurassic.AssemblyInfoInputs.cache
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\jurassic.AssemblyInfo.cs
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\jurassic.csproj.CoreCompileInputs.cache
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\jurassic.dll
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\refint\jurassic.dll
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\jurassic.pdb
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\jurassic.genruntimeconfig.cache
+C:\Users\johnt\Documents\jurassic\obj\Debug\net7.0\ref\jurassic.dll
