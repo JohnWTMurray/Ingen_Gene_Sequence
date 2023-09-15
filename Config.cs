@@ -9,5 +9,6 @@ public class Config
     public string Gap {get; set;}
     public int Lines {get; set;}
     public int Delay {get; set;}
+    public string Theme {get; set;}
 
 }

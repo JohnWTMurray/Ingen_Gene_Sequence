@@ -85,6 +85,22 @@ public class ArgumentHandler : Config
 
         if (_args.Contains("--lines") || _args.Contains("-l"))
             SetLines();
+
+        // Tripple nested if statements... Disappointing.
+        if (_args.Contains("--theme") || _args.Contains("-t"))
+        {
+            int index = _args.Contains("-t") ? _args.IndexOf("-t") : _args.IndexOf("--theme");
+            if (index + 1 <= _args.Count - 1)
+            {
+                string arg = _args.ElementAt(index + 1);
+                if (arg.StartsWith('-'))
+                    JurassicError.NoArgumentGiven();
+
+                }
+            else {
+                JurassicError.NoArgumentGiven();
+            }
+        }
         
         if (!_args.Contains("please"))
             RemindThemTheMagicWord();
@@ -97,7 +113,7 @@ public class ArgumentHandler : Config
         ColumnCount = 6;
         GapLength = 4;
         Gap = new string(' ', GapLength);
-        Lines = 0; // which translates to infinity 
+        Lines = 0; // '0' translates to infinity 
         Delay = 50;
     }
 
@@ -118,7 +134,8 @@ public class ArgumentHandler : Config
             GapLength = ColumnCount, 
             Gap = Gap,
             Lines = Lines,
-            Delay = Delay
+            Delay = Delay,
+            Theme = "RETRO"
         };
     }
 
