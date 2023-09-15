@@ -12,7 +12,6 @@ public static class GeneSequence
         return Nucleotides[Random.Shared.Next(0, 3)];
     }
 
-
     private static void Column()
     {
         for (int i = 0; i < _cfg.ColumnLength; i++)
