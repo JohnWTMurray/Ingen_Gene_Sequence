@@ -2,6 +2,10 @@
 namespace JurassicSystems;
 
 
+/* 
+    Takes argument array and generates a config instance according to the 
+    users' specifications. Use 'GetConfig()' to 
+*/
 public class ArgumentHandler : Config
 {
     private List<string> _args;
@@ -10,14 +14,20 @@ public class ArgumentHandler : Config
         _args.ForEach(x => x = x.ToLower());
     }
 
-    // This gets repeated for every argument that takes a number
+    /*  This gets repeated for every argument that takes a number.
+     *  Confirms if argument was input correctly. 
+     *  This method is for numeric arguments only
+    */
     private int ValidateArgument(int index, int min, int max)
     {
-        int argNum = 0;
+        int argNum;
+        // Assure the user input a parameter after the flag
         if (index + 1 > _args.Count - 1)
             JurassicError.NoArgumentGiven();
 
         string arg = _args.ElementAt(index + 1);
+
+        // Assure there is a parameter before the next flag
         if (arg.StartsWith('-'))
             JurassicError.NoArgumentGiven();
 
@@ -66,6 +76,7 @@ public class ArgumentHandler : Config
     }
         
 
+    /* Identifies flags and inputs parameters to config according to flag */
     private void HandleArguments()
     {
         PopulateDefault();
@@ -99,6 +110,7 @@ public class ArgumentHandler : Config
 
     }
 
+    /* Assigns default values to the config. Overwritten if user specifies in arguments */
     public void PopulateDefault()
     {
         ColumnLength = 6;
