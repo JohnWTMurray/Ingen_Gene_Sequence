@@ -5,11 +5,6 @@ namespace JurassicSystems;
 public class ArgumentHandler : Config
 {
     private List<string> _args;
-    private void CloseProgram(bool error)
-    {
-        Environment.Exit(error ? 1 : 0);
-    }
-
     private void ReduceArgsToLowerCase()
     {
         _args.ForEach(x => x = x.ToLower());
@@ -47,11 +42,6 @@ public class ArgumentHandler : Config
             Console.WriteLine("YOU DIDN'T SAY THE MAGIC WORD!");
             Thread.Sleep(250);
         }
-    }
-
-    private bool NotPolite()
-    {
-        return !_args.Contains("please");
     }
 
     private void SetGap() 
@@ -96,7 +86,7 @@ public class ArgumentHandler : Config
         if (_args.Contains("--lines") || _args.Contains("-l"))
             SetLines();
         
-        if (NotPolite())
+        if (!_args.Contains("please"))
             RemindThemTheMagicWord();
 
     }

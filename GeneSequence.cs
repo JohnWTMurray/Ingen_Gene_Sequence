@@ -26,7 +26,7 @@ public static class GeneSequence
     {
         for (int i = 0; i < _cfg.ColumnCount - 1; i++)
         {
-            Column();
+            Column(); 
             Console.Write(_cfg.Gap);
         }
         Column();
@@ -46,9 +46,7 @@ public static class GeneSequence
 
         // prints lines indefinitly if 'Lines == 0'
         for (int i = 1; i < _cfg.Lines || _cfg.Lines == 0; i++)
-        {
             Line();
-        }
 
     }
 }

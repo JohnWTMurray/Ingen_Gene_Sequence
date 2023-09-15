@@ -15,7 +15,6 @@ class Program
         Console.WriteLine($"Delay: {cfg.Delay}");
     }
 
-
     public static void Main(string[] args)
     {
 
