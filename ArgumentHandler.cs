@@ -14,23 +14,19 @@ public class ArgumentHandler : Config
     private int ValidateArgument(int index, int min, int max)
     {
         int argNum = 0;
-        if (index + 1 <= _args.Count - 1)
-        {
-            string arg = _args.ElementAt(index + 1);
-            if (arg.StartsWith('-'))
-                JurassicError.NoArgumentGiven();
-
-            if (!int.TryParse(arg, out argNum))
-                JurassicError.MustBeNumber();
-
-            Console.WriteLine(argNum);
-            if (argNum < min || argNum > max)
-                JurassicError.NotWithinLimits();
-            
-        }
-        else {
+        if (index + 1 > _args.Count - 1)
             JurassicError.NoArgumentGiven();
-        }
+
+        string arg = _args.ElementAt(index + 1);
+        if (arg.StartsWith('-'))
+            JurassicError.NoArgumentGiven();
+
+        if (!int.TryParse(arg, out argNum))
+            JurassicError.MustBeNumber();
+
+        if (argNum < min || argNum > max)
+            JurassicError.NotWithinLimits();
+        
         return argNum;
     }
 
@@ -86,20 +82,16 @@ public class ArgumentHandler : Config
         if (_args.Contains("--lines") || _args.Contains("-l"))
             SetLines();
 
-        // Tripple nested if statements... Disappointing.
         if (_args.Contains("--theme") || _args.Contains("-t"))
         {
             int index = _args.Contains("-t") ? _args.IndexOf("-t") : _args.IndexOf("--theme");
-            if (index + 1 <= _args.Count - 1)
-            {
-                string arg = _args.ElementAt(index + 1);
-                if (arg.StartsWith('-'))
-                    JurassicError.NoArgumentGiven();
 
-                }
-            else {
+            if (index + 1 > _args.Count - 1)
                 JurassicError.NoArgumentGiven();
-            }
+
+            string arg = _args.ElementAt(index + 1);
+            if (arg.StartsWith('-'))
+                JurassicError.NoArgumentGiven();
         }
         
         if (!_args.Contains("please"))
