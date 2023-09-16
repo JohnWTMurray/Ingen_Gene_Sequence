@@ -1,5 +1,6 @@
-
 namespace JurassicSystems;
+
+
 
 
 /* 
@@ -9,6 +10,12 @@ namespace JurassicSystems;
 public class ArgumentHandler : Config
 {
     private List<string> _args;
+    List<Theme> _themes = new Theme[] {
+        new Theme { Name ="RETRO", Foreground = ConsoleColor.Green, Background = ConsoleColor.Black },
+        new Theme { Name ="ORIGINAL", Foreground = ConsoleColor.White, Background = ConsoleColor.Blue },
+        new Theme { Name ="NONE", Foreground = Console.ForegroundColor , Background = Console.BackgroundColor }
+    }.ToList();
+
     private void ReduceArgsToLowerCase()
     {
         _args.ForEach(x => x = x.ToLower());
@@ -100,9 +107,17 @@ public class ArgumentHandler : Config
             if (index + 1 > _args.Count - 1)
                 JurassicError.NoArgumentGiven();
 
-            string arg = _args.ElementAt(index + 1);
+            string arg = _args.ElementAt(index + 1).ToUpper();
             if (arg.StartsWith('-'))
                 JurassicError.NoArgumentGiven();
+
+            if (_themes.Any(x => x.Name == arg))
+            {
+                Theme = _themes.Find(x => x.Name == arg);
+            }
+            else {
+                JurassicError.InvalidTheme(_themes);
+            }
         }
         
         if (!_args.Contains("please"))
@@ -119,6 +134,7 @@ public class ArgumentHandler : Config
         Gap = new string(' ', GapLength);
         Lines = 0; // '0' translates to infinity 
         Delay = 50;
+        Theme = _themes[0];
     }
 
 
@@ -139,7 +155,7 @@ public class ArgumentHandler : Config
             Gap = Gap,
             Lines = Lines,
             Delay = Delay,
-            Theme = "RETRO"
+            Theme = Theme
         };
     }
 

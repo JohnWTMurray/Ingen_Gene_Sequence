@@ -28,4 +28,13 @@ public static class JurassicError
         Environment.Exit(1);
     }
 
+    public static void InvalidTheme(List<Theme> _themes)
+    {
+        Console.Error.WriteLine("Invalid Theme. Input one of the following values for a theme:");
+        _themes.ForEach(x => {
+            Console.Error.WriteLine($"{x.Name}");
+        });
+        Environment.Exit(1);
+    }
+
 }

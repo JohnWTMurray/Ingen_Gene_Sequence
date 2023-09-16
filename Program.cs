@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace JurassicSystems;
+﻿namespace JurassicSystems;
 
 
 class Program
