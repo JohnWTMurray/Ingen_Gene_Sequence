@@ -32,16 +32,19 @@ public static class GeneSequence
         Console.WriteLine();
     }
 
-    private static void LoadTerminalTheme()
+    public static void LoadTheme()
     {
-        // update terminal foreground and background colors
-        // to be implemented later
+        if (_cfg.Theme.Name == "NONE") 
+            return;
+
+        Console.ForegroundColor = _cfg.Theme.Foreground;
+        Console.BackgroundColor = _cfg.Theme.Background;
     }
 
     public static void Init(Config config)
     {
         _cfg = config;
-        LoadTerminalTheme();
+        LoadTheme();
 
         // prints lines indefinitly if 'Lines == 0'
         for (int i = 1; i < _cfg.Lines || _cfg.Lines == 0; i++)

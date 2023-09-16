@@ -12,7 +12,7 @@ public class ArgumentHandler : Config
     private List<string> _args;
     List<Theme> _themes = new Theme[] {
         new Theme { Name ="RETRO", Foreground = ConsoleColor.Green, Background = ConsoleColor.Black },
-        new Theme { Name ="ORIGINAL", Foreground = ConsoleColor.White, Background = ConsoleColor.Blue },
+        new Theme { Name ="ORIGINAL", Foreground = ConsoleColor.White, Background = ConsoleColor.DarkBlue },
         new Theme { Name ="NONE", Foreground = Console.ForegroundColor , Background = Console.BackgroundColor }
     }.ToList();
 
